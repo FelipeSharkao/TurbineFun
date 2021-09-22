@@ -1,0 +1,25 @@
+{
+  "name": "turbine-fun",
+  "version": "1.0.0",
+  "description": "ToDo app to play around with FRP concepts",
+  "main": "index.html",
+  "author": "Felipe Nascimento <felipenasgomes@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.6.0",
+    "rollup-plugin-coffee-script": "^2.0.0",
+    "stylus": "^0.55.0",
+    "vite": "^2.5.10"
+  },
+  "dependencies": {
+    "@funkia/hareactive": "^0.4.0",
+    "@funkia/turbine": "^0.4.0",
+    "tailwindcss": "^2.2.15"
+  }
+}
