@@ -1,7 +1,8 @@
 import { elements as e, runComponent } from '@funkia/turbine'
+import todoList from './components/todo-list.coffee'
 
-import './styles/test.stylus'
+import 'tailwindcss/tailwind.css'
 
-App = e.main e.h1 'Hello World'
+app = e.main [e.h1 'Turbine Fun', todoList]
 
-runComponent '#root', App
+runComponent('#root', app)

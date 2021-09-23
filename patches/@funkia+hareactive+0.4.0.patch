@@ -1,0 +1,52 @@
+diff --git a/node_modules/@funkia/hareactive/dist/behavior.js b/node_modules/@funkia/hareactive/dist/behavior.js
+index 41be846..7b018b2 100644
+--- a/node_modules/@funkia/hareactive/dist/behavior.js
++++ b/node_modules/@funkia/hareactive/dist/behavior.js
+@@ -149,7 +149,7 @@ function refresh(b, t) {
+     b.last = newValue;
+ }
+ function isBehavior(b) {
+-    return ((typeof b === "object" && "at" in b && !index_1.isPlaceholder(b)) ||
++    return ((typeof b === "object" && "at" in b && "pull" in b && !index_1.isPlaceholder(b)) ||
+         (index_1.isPlaceholder(b) && (b.source === undefined || isBehavior(b.source))));
+ }
+ exports.isBehavior = isBehavior;
+diff --git a/node_modules/@funkia/hareactive/dist/common.js b/node_modules/@funkia/hareactive/dist/common.js
+index a882a76..c2a8137 100644
+--- a/node_modules/@funkia/hareactive/dist/common.js
++++ b/node_modules/@funkia/hareactive/dist/common.js
+@@ -4,7 +4,7 @@ var tslib_1 = require("tslib");
+ var datastructures_1 = require("./datastructures");
+ var clock_1 = require("./clock");
+ function isBehavior(b) {
+-    return typeof b === "object" && "at" in b;
++    return typeof b === "object" && "at" in b && "pull" in b;
+ }
+ var PushOnlyObserver = /** @class */ (function () {
+     function PushOnlyObserver(callback, source) {
+diff --git a/node_modules/@funkia/hareactive/dist/es/behavior.js b/node_modules/@funkia/hareactive/dist/es/behavior.js
+index 573f364..56b055c 100644
+--- a/node_modules/@funkia/hareactive/dist/es/behavior.js
++++ b/node_modules/@funkia/hareactive/dist/es/behavior.js
+@@ -114,7 +114,7 @@ function refresh(b, t) {
+     b.last = newValue;
+ }
+ export function isBehavior(b) {
+-    return ((typeof b === "object" && "at" in b && !isPlaceholder(b)) ||
++    return ((typeof b === "object" && "at" in b && "pull" in b && !isPlaceholder(b)) ||
+         (isPlaceholder(b) && (b.source === undefined || isBehavior(b.source))));
+ }
+ export class ProducerBehavior extends Behavior {
+diff --git a/node_modules/@funkia/hareactive/dist/es/common.js b/node_modules/@funkia/hareactive/dist/es/common.js
+index c20a3e6..314c2b3 100644
+--- a/node_modules/@funkia/hareactive/dist/es/common.js
++++ b/node_modules/@funkia/hareactive/dist/es/common.js
+@@ -1,7 +1,7 @@
+ import { cons, DoubleLinkedList, Node } from "./datastructures";
+ import { tick } from "./clock";
+ function isBehavior(b) {
+-    return typeof b === "object" && "at" in b;
++    return typeof b === "object" && "at" in b && "pull" in b;
+ }
+ export class PushOnlyObserver {
+     constructor(callback, source) {

@@ -7,19 +7,24 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "postinstall": "patch-package",
     "dev": "vite",
-    "build": "vite build",
+    "build": "NODE_ENV=production vite build",
     "serve": "vite preview"
   },
   "devDependencies": {
+    "autoprefixer": "^10.3.5",
     "coffeescript": "^2.6.0",
+    "postcss": "^8.3.7",
     "rollup-plugin-coffee-script": "^2.0.0",
     "stylus": "^0.55.0",
+    "tailwindcss": "^2.2.15",
     "vite": "^2.5.10"
   },
   "dependencies": {
     "@funkia/hareactive": "^0.4.0",
     "@funkia/turbine": "^0.4.0",
-    "tailwindcss": "^2.2.15"
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
   }
 }
