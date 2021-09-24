@@ -3,6 +3,6 @@ import todoList from './components/todo-list.coffee'
 
 import 'tailwindcss/tailwind.css'
 
-app = e.main [e.h1 'Turbine Fun', todoList]
+app = e.main [(e.h1 'Turbine Fun'), todoList()]
 
 runComponent('#root', app)
