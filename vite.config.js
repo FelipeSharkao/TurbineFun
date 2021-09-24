@@ -6,6 +6,8 @@ export default defineConfig({
   plugins: [coffee()],
   optimizeDeps: {
     exclude:
-      process.env.NODE_ENV !== 'production' ? ['tailwindcss'] : undefined,
+      process.env.NODE_ENV !== 'production'
+        ? ['tailwindcss', '@funkia/hareactive']
+        : undefined,
   },
 })
