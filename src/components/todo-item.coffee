@@ -7,7 +7,7 @@ todoItem = ({ name, id }) -> component (o) ->
   id = if isBehavior id then id else Behavior.of id
   txtCls = o.checked.map (b) ->
     'mx-2 flex-grow' + if b then ' line-through' else ''
-  e.div class: 'mb-3 p-3 w-full flex items-center bg-purple-500 text-white rounded-lg',
+  e.div class: 'mb-3 p-3 w-full flex items-center bg-purple-500 text-white rounded',
     [ e.checkbox()
         .use checked: 'checked'
       e.span class: txtCls, name

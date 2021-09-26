@@ -14,10 +14,10 @@ app = component (o, start) ->
      [o.removeItem, ((id, arr) -> x for x in arr when x.id != id)]
     ],
     initialList
-  e.main [ e.h1 'Turbine Fun'
-           todoInput()
-           .use insertItem: 'insert'
-           todoList { items }
-           .use removeItem: 'remove' ]
+  e.main class: 'm-auto w-96', [ e.h1 class: 'text-5xl text-center', 'Turbine Fun'
+                                 todoInput()
+                                 .use insertItem: 'insert'
+                                 todoList { items }
+                                 .use removeItem: 'remove' ]
 
 runComponent('#root', app)
