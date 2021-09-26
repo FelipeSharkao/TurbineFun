@@ -1,6 +1,7 @@
 import { elements as e, component, runComponent } from '@funkia/turbine'
 
-import { accum } from '@funkia/hareactive'
+import { accumCombine } from '@funkia/hareactive'
+import todoInput from './components/todo-input.coffee'
 import todoList from './components/todo-list.coffee'
 
 import 'tailwindcss/tailwind.css'
@@ -8,11 +9,15 @@ import 'tailwindcss/tailwind.css'
 initialList = (id: i, name: "Todo Item #{i}" for i in [1..5])
 
 app = component (o, start) ->
-  items = start accum ((id, arr) -> x for x in arr when x.id != id),
-                      initialList,
-                      o.removeItem
+  items = start accumCombine \
+    [[o.insertItem, ((name, arr) -> [{ id: (arr.at -1).id + 1, name }, arr...])]
+     [o.removeItem, ((id, arr) -> x for x in arr when x.id != id)]
+    ],
+    initialList
   e.main [ e.h1 'Turbine Fun'
+           todoInput()
+           .use insertItem: 'insert'
            todoList { items }
-             .use removeItem: 'remove' ]
+           .use removeItem: 'remove' ]
 
 runComponent('#root', app)

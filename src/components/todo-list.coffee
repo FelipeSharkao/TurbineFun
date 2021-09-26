@@ -4,7 +4,7 @@ import { component, elements as e, list } from '@funkia/turbine'
 import todoItem from './todo-item.coffee'
 
 todoList = ({ items }) -> component (o) ->
-  e.div class: 'm-auto w-96',
+  e.div class: 'w-full',
     list ((item) ->
             todoItem id: item.id, name: item.name
             .use ({ remove }) -> remove: remove.mapTo item.id),
