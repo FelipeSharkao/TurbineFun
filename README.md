@@ -36,5 +36,5 @@ component (state) ->
     { clickStream } = yield (button 'OK').use clickStream: 'click'
 
     return valueStream: snapshot valueBehavior, clickStream
-  return elementChain.use submit: state.valueStream
+  return elementChain.output submit: state.valueStream
 ```
