@@ -13,6 +13,8 @@
     "serve": "vite preview"
   },
   "devDependencies": {
+    "@coffeelint/cli": "^5.0.4",
+    "@rollup/pluginutils": "^4.1.1",
     "autoprefixer": "^10.3.5",
     "coffeescript": "^2.6.0",
     "postcss": "^8.3.7",
