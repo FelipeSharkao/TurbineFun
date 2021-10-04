@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@funkia/hareactive": "^0.4.0",
+    "@funkia/io": "^0.0.5",
     "@funkia/turbine": "^0.4.0",
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0"

@@ -43,7 +43,7 @@
     "@funkia/io" "0.0.5"
     tslib "^1.10.0"
 
-"@funkia/io@0.0.5":
+"@funkia/io@0.0.5", "@funkia/io@^0.0.5":
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/@funkia/io/-/io-0.0.5.tgz#525942c01e771e39cc3c0ef1b038301d5b79972a"
   integrity sha512-C1fNtAQVZBJAxmRAJSp2uuX27lGZy0y1wZWLYqzobiI/Abmmk5yUDRX+XCGh/q97gQ36qutd2lBZJQIkHvuXuw==
