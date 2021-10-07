@@ -2,6 +2,10 @@
 
 This is not but a simple to-do app, so I can focus in understating concepts of Functional Reactive Programming and very poor documented [@funkia/turbine](https://github.com/funkia/turbine). You can see it working [here](https://turbine-fun.vercel.app).
 
+#### Disclaimer
+
+This project is incomplete. Not that I didn't want to complete it, but [@funkia](https://github.com/funkia) packages are not maintained and unusable as it is.
+
 ## Functional Reactive Programming
 
 **Note**: I'll be using CoffeeScript 2 across this explanation. I'll try to keep its craziness to a minimal.
