@@ -1,6 +1,6 @@
 {
   "name": "turbine-fun",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "ToDo app to play around with FRP concepts",
   "main": "index.html",
   "author": "Felipe Nascimento <felipenasgomes@gmail.com>",

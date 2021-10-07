@@ -1,5 +1,10 @@
-import { accumCombine, sample } from '@funkia/hareactive'
-import { elements as e, component, runComponent } from '@funkia/turbine'
+import {
+  accumCombine,
+  changes,
+  performStream,
+  sample,
+} from '@funkia/hareactive'
+import { component, elements as e, fgo, runComponent } from '@funkia/turbine'
 
 import TaskModel from './models/task.coffee'
 import todoInput from './components/todo-input.coffee'
@@ -8,12 +13,16 @@ import todoList from './components/todo-list.coffee'
 import 'tailwindcss/tailwind.css'
 
 app = component (o, start) ->
+  storedItems = start sample TaskModel.getAll()
+  nextId = 1 + storedItems.reduce \
+    (max, item) ->
+      if (n = Number item.id).isNaN then max
+      else Math.max max, n
+    , -1
+
   items = start accumCombine \
     [
-      [
-        o.insertItem
-        (name, arr) -> [(new TaskModel (arr.at -1).id + 1, name), arr...]
-      ]
+      [o.insertItem, (name, arr) -> [(new TaskModel nextId, name), arr...]]
       [o.removeItem, ((id, arr) -> x for x in arr when x.id != id)]
       [
         o.toggleItem
@@ -23,7 +32,15 @@ app = component (o, start) ->
             else x
       ]
     ]
-    , start sample TaskModel.getAll()
+    , storedItems
+
+  start performStream o.insertItem.map (name) ->
+    (new TaskModel nextId, name).save()
+  saveOnChangeIO = changes \
+    items
+    , (a, b) -> a.length == b.length and a.every (_, i) -> a[i] == b[i]
+  .map fgo (arr) -> yield task.save() for task in arr; undefined
+  start performStream saveOnChangeIO
 
   e.main \
     class: 'm-auto w-96'

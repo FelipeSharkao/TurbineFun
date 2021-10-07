@@ -4,7 +4,6 @@ import { component, elements as e, list } from '@funkia/turbine'
 import todoItem from './todo-item.coffee'
 
 todoList = ({ items }) -> component (o, start) ->
-  items.log 'items'
   e.div class: 'w-full',
     list \
       (item) ->
